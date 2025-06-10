@@ -47,7 +47,7 @@ Todo o projeto foi modularizado para facilitar o desenvolvimento, testes e manut
 └── build/                         # Arquivos gerados pela compilação (não versionado)
 ```
 
-🚦 Fluxograma de Uso
+### 🚦 Fluxograma de Uso
 
 Menu Inicial
 Ao ligar o Pico, o display exibe duas opções:
@@ -148,37 +148,37 @@ Ao passar para o buzzer, usamos uma função sleep_us(30), para a reprodução d
 
 ### 🎯 Representação gráfica do sinal
 
-1. Segmentação do Sinal
-Vector[TOTAL_AMOSTRAS] → 128 Blocos → Display[128×64]
+1. **Segmentação do Sinal
+- Vector[TOTAL_AMOSTRAS] → 128 Blocos → Display[128×64]
 
 O array de amostras int16_t dados[] é dividido em 128 segmentos
 Cada segmento corresponde a uma coluna do display
 Tamanho do bloco: TOTAL_AMOSTRAS ÷ 128 amostras por coluna
 
-2. Processamento Estatístico
-Bloco[n] → Média Aritmética → Valor Representativo
+2. **Processamento Estatístico
+- Bloco[n] → Média Aritmética → Valor Representativo
 
-Cálculo da média: Cada bloco é reduzido a um único valor através da média aritmética
-Redução de ruído: A média suaviza variações abruptas e outliers
-Representação temporal: Mantém as características gerais da forma de onda
+- Cálculo da média: Cada bloco é reduzido a um único valor através da média aritmética
+- Redução de ruído: A média suaviza variações abruptas e outliers
+- Representação temporal: Mantém as características gerais da forma de onda
 
-3. Normalização Adaptativa
-Sinal Processado → Detecção de Pico → Normalização → Escala 0-64
+3. **Normalização Adaptativa
+- Sinal Processado → Detecção de Pico → Normalização → Escala 0-64
 
-Detecção do pico: Identifica o maior valor absoluto do sinal completo
-Normalização proporcional: altura = (média_bloco ÷ pico_global) × altura_display
-Aproveitamento total: Utiliza toda a altura disponível do display (64 pixels)
+- Detecção do pico: Identifica o maior valor absoluto do sinal completo
+- Normalização proporcional: altura = (média_bloco ÷ pico_global) × altura_display
+- Aproveitamento total: Utiliza toda a altura disponível do display (64 pixels)
 
-4. Renderização Centrada
-Valores Normalizados → Centralização → Barras Simétricas
+4. **Renderização Centrada
+- Valores Normalizados → Centralização → Barras Simétricas
 
-Linha de referência: Centro vertical do display (pixel 32)
-Simetria: Valores positivos e negativos são representados simetricamente
-Visualização bipolar: Permite análise completa da forma de onda AC
+- Linha de referência: Centro vertical do display (pixel 32)
+- Simetria: Valores positivos e negativos são representados simetricamente
+- Visualização bipolar: Permite análise completa da forma de onda AC
 
-5. Amplificação Inteligente
-if (amplitude_baixa) → Fator_Amplificação → Melhor_Visibilidade
+5. **Amplificação Inteligente
+- if (amplitude_baixa) → Fator_Amplificação → Melhor_Visibilidade
 
-Detecção automática: Identifica sinais de baixa amplitude
-Ganho visual: Aplica fator de amplificação para sinais fracos
-Preservação da forma: Mantém as proporções relativas do sinal original
+- Detecção automática: Identifica sinais de baixa amplitude
+- Ganho visual: Aplica fator de amplificação para sinais fracos
+- Preservação da forma: Mantém as proporções relativas do sinal original
