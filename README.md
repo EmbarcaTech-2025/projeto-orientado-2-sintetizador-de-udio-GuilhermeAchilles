@@ -49,6 +49,11 @@ Todo o projeto foi modularizado para facilitar o desenvolvimento, testes e manut
 
 ### 🚦 Fluxograma de Uso
 
+<p align = "center">
+    <img src= "assets/sintetizador_de_audi.drawio.png"
+     width="1080px">
+</p>
+
 Menu Inicial
 Ao ligar o Pico, o display exibe duas opções:
 
