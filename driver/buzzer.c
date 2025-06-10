@@ -15,7 +15,7 @@ void pwm_init_buzzer() {
     pwm_set_wrap(slice, 4096);
 
     // Vamos gerar PWM em ≈ 20 kHz
-    float clkdiv = (float)clock_get_hz(clk_sys) / (17000 *4096);
+    float clkdiv = (float)clock_get_hz(clk_sys) / (30000 *4096);
     pwm_set_clkdiv(slice,clkdiv);
     pwm_set_enabled(slice, true); // Habilita o PWM no slice
     pwm_set_gpio_level(BUZZER_PIN, 0);
@@ -32,7 +32,7 @@ void play_buffer(uint16_t *buffer, float sample_rate) {
         pwm_set_gpio_level(BUZZER_PIN, pwm_value);
 
         // passo 5: espera o tempo da amostra (8 kHz, 16 kHz etc.)
-        sleep_us(45); // 62.5 us para 16 kHz
+        sleep_us(30); // 62.5 us para 16 kHz
         pwm_set_gpio_level(BUZZER_PIN, 0);
     }
     // ao fim, zera a saída
