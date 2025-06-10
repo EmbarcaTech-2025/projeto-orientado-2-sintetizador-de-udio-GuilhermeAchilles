@@ -182,3 +182,7 @@ Tamanho do bloco: TOTAL_AMOSTRAS ÷ 128 amostras por coluna
 - Detecção automática: Identifica sinais de baixa amplitude
 - Ganho visual: Aplica fator de amplificação para sinais fracos
 - Preservação da forma: Mantém as proporções relativas do sinal original
+
+### Video do funcionamento
+
+https://youtube.com/shorts/mDe84JE2Ik0
